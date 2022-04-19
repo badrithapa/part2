@@ -66,16 +66,16 @@ nlu:
   examples: |
     - I want to plan an plan_event
     - I was planing for birthday party
-    - i need a restaurant for an occassion
-    - can you help me plan my [wedding](occassion_ent)
-    - i need to plan [birthday](occassion_ent)
-    - plan [wedding](occassion_ent)
-    - plan [birthday](occassion_ent)
-    - plan [birthday](occassion_ent)
-    - plan [wedding](occassion_ent)
-    - plan [retirement](occassion_ent) party
-    - plan [thanksgiving](occassion_ent)
-    - plan [anniversary](occassion_ent)
+    - i need a restaurant for an occasion
+    - can you help me plan my [wedding](occasion_ent)
+    - i need to plan [birthday](occasion_ent)
+    - plan [wedding](occasion_ent)
+    - plan [birthday](occasion_ent)
+    - plan [birthday](occasion_ent)
+    - plan [wedding](occasion_ent)
+    - plan [retirement](occasion_ent) party
+    - plan [thanksgiving](occasion_ent)
+    - plan [anniversary](occasion_ent)
 
 - intent: bot_challenge
   examples: |

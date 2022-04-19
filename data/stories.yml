@@ -13,7 +13,7 @@ stories:
   - action: event_form
   - active_loop: event_form
   - slot_was_set:
-    - requested_slot: ocassion_slot
+    - requested_slot: occasion_slot
   - slot_was_set:
     - requested_slot: guest_slot
   - slot_was_set:
@@ -29,7 +29,7 @@ stories:
   - action: event_form
   - active_loop: event_form
   - slot_was_set:
-    - requested_slot: ocassion_slot
+    - requested_slot: occasion_slot
   - slot_was_set:
     - requested_slot: guest_slot
   - slot_was_set:

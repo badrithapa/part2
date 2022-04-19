@@ -13,7 +13,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import AllSlotsReset, Restarted
 
-class AskForOcassionAction(Action):
+class AskForOccasionAction(Action):
     def name(self) -> Text:
         return "action_ask_occasion_slot"
 

@@ -11,7 +11,7 @@ intents:
 entities:
   - time
   - number
-  - ocassion_ent
+  - occasion_ent
 
 slots:
   time_slot:
@@ -24,16 +24,16 @@ slots:
     mappings:
     - type: from_entity
       entity: number
-  occassion_slot:
+  occasion_slot:
     type: text
     mappings:
     - type: from_entity
-      entity: ocassion_ent
+      entity: occasion_ent
 
 forms:
   event_form:
     required_slots:
-      - ocassion_slot
+      - occasion_slot
       - time_slot
       - guest_slot
 
@@ -41,7 +41,7 @@ actions:
   - action_ask_time_slot
   - action_reset_slots
   - action_ask_guest_slot
-  - action_ask_ocassion_slot
+  - action_ask_occasion_slot
   - aciton_restart
 
 responses:
@@ -54,7 +54,7 @@ responses:
   utter_confirm:
   - text: |
       can you confirm that the information that you provided is correct?</br>
-      - <b>Ocassion:</b> {occassion_slot}
+      - <b>Occasion:</b> {occasion_slot}
       - <b>Number of guests:</b> {guest_slot}
       - <b>Time:</b> {time_slot}
   utter_remember:
