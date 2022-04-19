@@ -1,0 +1,105 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - laal salam
+    - good afternoon
+    - Namaskar
+    - main menu
+    - Namaste
+    - lal salam
+    - jay nepal
+    - jaya nepal
+    - jay nepal
+    - Namaste
+    - Namaskar
+
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - that sounds good
+    - correct
+
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not at all
+
+- intent: plan_event
+  examples: |
+    - I want to plan an plan_event
+    - I was planing for birthday party
+    - i need a restaurant for an occassion
+    - can you help me plan my [wedding](occassion_ent)
+    - i need to plan [birthday](occassion_ent)
+    - plan [wedding](occassion_ent)
+    - plan [birthday](occassion_ent)
+    - plan [birthday](occassion_ent)
+    - plan [wedding](occassion_ent)
+    - plan [retirement](occassion_ent) party
+    - plan [thanksgiving](occassion_ent)
+    - plan [anniversary](occassion_ent)
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: restart
+  examples: |
+    - quit
+    - stop
+    - exit
+    - go back
+    - wait i made a mistake
+    - i want to go back
+    - start over
+    - restart
+    - undo everything
+    - start again
+    - restart chat
+    - reset everything
+    - forget everything i said
+    - forget everything
+    - start over again
+    - start over
+    - start again

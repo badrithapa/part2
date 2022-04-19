@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask the user to rephrase
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Restart the whole chat session
+  steps:
+  - intent: restart
+  - action: action_restart

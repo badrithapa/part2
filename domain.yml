@@ -1,0 +1,72 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - plan_event
+  - bot_challenge
+
+entities:
+  - time
+  - number
+  - ocassion_ent
+
+slots:
+  time_slot:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: time
+  guest_slot:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: number
+  occassion_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ocassion_ent
+
+forms:
+  event_form:
+    required_slots:
+      - ocassion_slot
+      - time_slot
+      - guest_slot
+
+actions:
+  - action_ask_time_slot
+  - action_reset_slots
+  - action_ask_guest_slot
+  - action_ask_ocassion_slot
+  - aciton_restart
+
+responses:
+  utter_please_rephrase:
+  - text: |
+      Sorry, I didn't get that.Could you please rephrase your question.
+  utter_greet:
+  - text: |
+      Hello, how can I help you?
+  utter_confirm:
+  - text: |
+      can you confirm that the information that you provided is correct?</br>
+      - <b>Ocassion:</b> {occassion_slot}
+      - <b>Number of guests:</b> {guest_slot}
+      - <b>Time:</b> {time_slot}
+  utter_remember:
+  - text: |
+      Great, I will remember that.
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
