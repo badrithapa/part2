@@ -7,6 +7,7 @@ intents:
   - deny
   - plan_event
   - bot_challenge
+  - restart
 
 entities:
   - time
@@ -42,30 +43,58 @@ actions:
   - action_reset_slots
   - action_ask_guest_slot
   - action_ask_occasion_slot
-  - aciton_restart
+  - action_restart
 
 responses:
   utter_please_rephrase:
   - text: |
       Sorry, I didn't get that.Could you please rephrase your question.
+    buttons:
+    - title: Start Over
+      payload: '/restart'
   utter_greet:
   - text: |
       Hello, how can I help you?
+    buttons:
+    - title: Start Planning
+      payload: '/plan_event'
   utter_confirm:
   - text: |
-      can you confirm that the information that you provided is correct?</br>
-      - <b>Occasion:</b> {occasion_slot}
-      - <b>Number of guests:</b> {guest_slot}
-      - <b>Time:</b> {time_slot}
+      Can you confirm that the information that you provided is correct?</br>
+      - **Occasion:** {occasion_slot}
+      - **Number of guests:** {guest_slot}
+      - **Time:** {time_slot}
+    buttons:
+    - title: "yes"
+      payload: '/affirm'
+      style: "primary"
+    - title: "No"
+      payload: "/deny"
+      style: "inlineButton"
+    - title: "Restart"
+      payload: "/restart"
+      sytle: "inlineButton"
   utter_remember:
   - text: |
       Great, I will remember that.
+    buttons:
+    - title: "Plan another event"
+      payload: "/plan_event"
+    - title: "Main Menu"
+      payload: "/restart"
   utter_goodbye:
   - text: "Bye"
+    buttons:
+    - title: "Main Menu"
+      payload: "/restart"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
-
+    buttons:
+    - title: "Plan an event"
+      payload: "/plan_event"
+    - title: "Main Menu"
+      payload: "/restart"
 
 session_config:
   session_expiration_time: 60

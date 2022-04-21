@@ -13,6 +13,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import AllSlotsReset, Restarted
 
+buttons = []
+buttons.append({"title": 'Start Over', "payload": '/restart'})
 class AskForOccasionAction(Action):
     def name(self) -> Text:
         return "action_ask_occasion_slot"
@@ -20,7 +22,7 @@ class AskForOccasionAction(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="May I ask the ocassion you're celebrating?")
+        dispatcher.utter_message(text="May I ask the ocassion you're celebrating?", buttons=buttons)
         return []
 
 class AskForGuestAction(Action):
@@ -29,7 +31,7 @@ class AskForGuestAction(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="May I ask the number of guests?")
+        dispatcher.utter_message(text="May I ask the number of guests?", buttons=buttons)
 
         return []
 
@@ -39,7 +41,7 @@ class AskForTimeAction(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="May I ask the time you're celebrating?")
+        dispatcher.utter_message(text="May I ask the time you're celebrating?", buttons=buttons)
 
         return []
 
@@ -57,11 +59,14 @@ class ActionRestart(Action):
   def name(self) -> Text:
       return "action_restart"
 
-  async def run(
-      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
+  async def run(self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
   ) -> List[Dict[Text, Any]]:
 
       # custom behavior
       dispatcher.utter_message("Session Restarted")
+      print("Session Restarted")
       dispatcher.utter_message(response="utter_greet")
       return [Restarted()]
+
+if __name__ == "__main__":
+    print("Hello World!")
